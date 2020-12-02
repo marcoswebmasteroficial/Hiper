@@ -6,7 +6,8 @@ import Settings from '../pages/Settings'
 import Youtube from '../pages/Youtube'
 const Routes: React.FC = () => (
   <Switch>
-    <Route path="/home"  component={Dashboard} />
+    <Route exact path="/" component={Dashboard} />
+    <Route path="/home" component={Dashboard} />
     <Route path="/youtube" component={Youtube} />
     <Route path="/settings" component={Settings} />
   </Switch>
