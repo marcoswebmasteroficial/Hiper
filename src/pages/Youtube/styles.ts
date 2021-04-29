@@ -27,7 +27,17 @@ background: #b95842;
     font-size: 15px;
     text-align: center;
     `;
-
+    export const Concluido = styled.div`
+    background: #65b942;
+        padding: 5px;
+        color: #fff;
+        border-radius: 3px;
+        font-size: 15px;
+        text-align: center;
+        line-height: 23px;
+        font-weight: 600;
+        `;
+    
 export const VideoInfo = styled.div`
  display: grid;
  grid-template-columns: 168px auto;

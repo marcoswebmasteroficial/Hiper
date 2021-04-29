@@ -21,7 +21,7 @@ module.exports = {
     ]
   },
   node: {
-    __dirname: false
+    __dirname: true
   },
   output: {
     path: path.resolve(rootPath, 'dist'),

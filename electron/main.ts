@@ -1,7 +1,13 @@
-import { app, BrowserWindow } from 'electron'
+import { app, BrowserWindow, ipcMain } from 'electron'
 import * as path from 'path'
 import * as url from 'url'
 import installExtension, { REACT_DEVELOPER_TOOLS, REDUX_DEVTOOLS } from 'electron-devtools-installer'
+import Store from 'electron-store'
+Store.initRenderer();
+const store = new Store();
+
+store.set('folder', __dirname);
+console.log(app.getPath('userData'));
 
 let mainWindow: Electron.BrowserWindow | null;
 
@@ -15,6 +21,7 @@ function createWindow () {
     frame: false,
     resizable: true,
     webPreferences: {
+      enableRemoteModule: true,
       nodeIntegration: true
 
     }
@@ -45,3 +52,7 @@ app.on('ready', createWindow)
     }
   })
 app.allowRendererProcessReuse = true
+
+ipcMain.handle('getStoreValue', (event, key) => {
+	return store.get(key);
+});
